@@ -1,0 +1,12 @@
+server:
+  port: 8000
+
+web:
+  domain: http://localhost
+
+spring:
+  datasource:
+    diriver-class-name:
+      username: Zhusq
+      password: zsq20000307
+      url:
