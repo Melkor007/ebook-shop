@@ -32,12 +32,15 @@ public class Order implements Serializable {
 
     private int book_id;
 
-    private double user_price;
+    private String book_name;
 
-    public void setOrder(int order_id, int user_id, int book_id,  double user_price) {
+    private double book_price;
+
+    public void setOrder(int order_id, int user_id, int book_id, String book_name, double book_price) {
         this.order_id = order_id;
         this.user_id = user_id;
         this.book_id = book_id;
-        this.user_price = user_price;
+        this.book_name = book_name;
+        this.book_price = book_price;
     }
 }

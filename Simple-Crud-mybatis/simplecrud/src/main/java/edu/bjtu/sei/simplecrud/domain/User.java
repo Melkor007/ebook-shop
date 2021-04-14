@@ -9,31 +9,28 @@ import java.util.Collection;
 @Setter
 public class User {
 
-    private String user_id_num;
+    private int user_id;
 
     private String user_name;
     private String user_password;
-    private String user_phone_num;
-    private  Collection<Role> roles;
+    private Collection<Role> user_role;
 
     public User() {
     }
 
-    public User(String user_name, String user_password, String user_phone_num, Collection<Role> roles) {
+    public User(String user_name, String user_password, Collection<Role> user_role) {
         this.user_name = user_name;
         this.user_password = user_password;
-        this.user_phone_num = user_phone_num;
-        this.roles = roles;
+        this.user_role = user_role;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + user_id_num +
+                "id=" + user_id +
                 ", user_name='" + user_name + '\'' +
                 ", user_password='" + "*********" + '\'' +
-                ", roles='" + roles + '\'' +
-                ", user_phone_num='" + user_phone_num + '\'' +
+                ", roles='" + user_role + '\'' +
                 '}';
     }
 }
