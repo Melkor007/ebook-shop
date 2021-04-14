@@ -36,7 +36,7 @@ public class UserRegistrationController {
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
                                       BindingResult result){
 
-        User existing = userService.findById(userDto.getUser_id_num());
+        User existing = userService.findById(userDto.getUser_id());
         if (existing != null){
             result.rejectValue("ID", null, "There is already an account registered with that ID num");
         }

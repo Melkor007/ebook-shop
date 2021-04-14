@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public User findById(String user_id_num){
-        return userRepository.findById(user_id_num);
+    public User findById(int user_id){
+        return userRepository.findById(user_id);
     }
 
     public User save(UserRegistrationDto registration){
@@ -35,15 +35,14 @@ public class UserServiceImpl implements UserService {
 
         user.setUser_name(registration.getUser_name());
         user.setUser_password(passwordEncoder.encode(registration.getUser_password()));
-        user.setUser_phone_num(registration.getUser_phone_num());
-        user.setUser_id_num(registration.getUser_id_num());
+        user.setUser_id(registration.getUser_id());
 
         userRepository.save(user);
         return user;
     }
 
-    public void delete(String user_id_num){
-        userRepository.delete(user_id_num);
+    public void delete(int user_id){
+        userRepository.delete(user_id);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class UserServiceImpl implements UserService {
         if (user == null){
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getUser_id_num(),
+        return new org.springframework.security.core.userdetails.User(user.getUser_id(),
                 user.getUser_password(),
                 mapRolesToAuthorities(user.getRoles()));
     }
