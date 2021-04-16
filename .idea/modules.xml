@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ebook-shop.iml" filepath="$PROJECT_DIR$/.idea/ebook-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simple-Crud-mybatis/simplecrud/simplecrud.iml" filepath="$PROJECT_DIR$/Simple-Crud-mybatis/simplecrud/simplecrud.iml" />
+    </modules>
+  </component>
+</project>
