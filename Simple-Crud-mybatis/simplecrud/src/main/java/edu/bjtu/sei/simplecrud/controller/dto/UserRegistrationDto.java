@@ -21,10 +21,7 @@ public class UserRegistrationDto {
     private String confirmPassword;
 
     @NotEmpty
-    private String user_phone_num;
-
-    @NotEmpty
-    private String user_id_num;
+    private int user_id;
 
     @NotEmpty
     private Role role;

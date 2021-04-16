@@ -26,17 +26,16 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public User findById(String user_id_num){
-        return userRepository.findById(user_id_num);
+    public User findById(int user_id_num){
+        return userRepository.findById(user_id);
     }
 
     public User save(UserRegistrationDto registration){
         User user = new User();
 
         user.setUser_name(registration.getUser_name());
-        user.setUser_password(passwordEncoder.encode(registration.getUser_password()));
-        user.setUser_phone_num(registration.getUser_phone_num());
-        user.setUser_id_num(registration.getUser_id_num());
+        user.setUser_password(passwordEncoder.encode(registration.getUser_password()));\
+        user.setUser_id(registration.getUser_id());
 
         userRepository.save(user);
         return user;

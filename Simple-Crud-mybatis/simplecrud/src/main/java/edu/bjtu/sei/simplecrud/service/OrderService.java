@@ -27,7 +27,7 @@ public class OrderService {
     private OrderMapper orderRepository;
     
     private boolean existsById(int id) {
-    	Order order = (Order) orderRepository.find(id);
+    	Order order = (Order) orderRepository.findById(id);
         if (order ==null) {
             return false;
         }
@@ -35,7 +35,7 @@ public class OrderService {
     }
     
     public Order findById(int id) throws ResourceNotFoundException {
-        Order order = (Order) orderRepository.find(id);
+        Order order = (Order) orderRepository.findById(id);
         if (order ==null) {
             throw new ResourceNotFoundException("Cannot find Order with id: " + id);
         }
