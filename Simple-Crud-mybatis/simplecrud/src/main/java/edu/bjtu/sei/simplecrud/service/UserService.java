@@ -7,9 +7,9 @@ import edu.bjtu.sei.simplecrud.controller.dto.UserRegistrationDto;
 
 public interface UserService extends UserDetailsService {
 
-    User findById(int user_id);
+    User findById(String user_id_num);
 
     User save(UserRegistrationDto registration);
 
-    void delete(int user_id);
+    void delete(String user_id_num);
 }
