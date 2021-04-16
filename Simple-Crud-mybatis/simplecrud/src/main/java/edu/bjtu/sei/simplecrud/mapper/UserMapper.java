@@ -11,7 +11,7 @@ import edu.bjtu.sei.simplecrud.domain.User;
 public interface UserMapper {
 
     @Select("select * from user where user.user_id_num = #{user_id}")
-    @Results(id = "userMap", value = {
+    @Results(id = "findById", value = {
             //id表示主键v
             @Result(id = true, column = "user_id", property = "user_id"),
             @Result(column = "user_name", property = "user_name"),
@@ -21,7 +21,7 @@ public interface UserMapper {
     User findById(int user_id);
 
     @Select("select * from user where user.user_name = #{user_name}")
-    @Results(id = "userMap", value = {
+    @Results(id = "findByName", value = {
             //id表示主键v
             @Result(id = true, column = "user_id", property = "user_id"),
             @Result(column = "user_name", property = "user_name"),

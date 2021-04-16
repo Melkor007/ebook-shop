@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.bjtu.sei.simplecrud.mapper.OrderMapper">
+
+    <resultMap id="BaseResultMap" type="edu.bjtu.sei.simplecrud.domain.Order">
+        <result column="order_id" property="order_id" jdbcType="INTEGER"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="book_id" property="book_id" jdbcType="INTEGER"/>
+        <result column="book_name" property="book_name" jdbcType="VARCHAR"/>
+        <result column="book_price" property="book_price" jdbcType="DOUBLE"/>
+    </resultMap>
+
+<!--    &lt;!&ndash;查询订单信息&ndash;&gt;-->
+<!--    <select id="getOrder" resultType="com.example.demo.entity.Order">-->
+<!--        select * from order where order_id = #{order_id}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;查询所有订单&ndash;&gt;-->
+<!--    <select id="selectAll" resultType="com.example.demo.entity.Order">-->
+<!--        select * from order where user_id = #{user_id}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;删除订单&ndash;&gt;-->
+<!--    <delete id="deleteOrder" parameterType="int">-->
+<!--        delete from order where order_id = #{order_id}-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash;增加订单&ndash;&gt;-->
+<!--    <insert id="addOrder" parameterType="com.example.demo.entity.Order">-->
+
+<!--    </insert>-->
+
+</mapper>

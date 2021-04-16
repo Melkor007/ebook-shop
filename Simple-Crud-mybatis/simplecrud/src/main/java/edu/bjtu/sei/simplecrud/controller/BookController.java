@@ -24,22 +24,22 @@ public class BookController {
 
     @RequestMapping("/book-list/buy/{book_id}")
     public String buy(Model model, @PathVariable Integer book_id){
-
+        return "abaaba";
     }
 
     @RequestMapping("/book-list/update_price/{book_id}")
     public String update_price(Model model, @PathVariable Integer book_id){
-
+        return "abaaba";
     }
 
     @RequestMapping("/book-list/insert")
     public String insert(Model model){
-
+        return "abaaba";
     }
 
     @RequestMapping("/book-list/delete/{book_id}")
     public String delete(Model model, @PathVariable Integer book_id){
-
+        return "abaaba";
     }
 
 

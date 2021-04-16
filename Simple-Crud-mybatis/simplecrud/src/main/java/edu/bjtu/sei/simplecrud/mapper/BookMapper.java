@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.*;
 //import org.apache.ibatis.annotations.Insert;
 //import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 //import org.apache.ibatis.annotations.Options;
 //import org.apache.ibatis.annotations.Param;
 
@@ -17,7 +19,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface BookMapper {
 	@Select("select * from book where id = #{book_id}")
-    @Results(id = "bookMap", value = {
+    @Results(id = "findById", value = {
             //id表示主键v
             @Result(id = true, column = "book_id", property = "book_id"),
             @Result(column = "book_name", property = "book_name"),
@@ -27,7 +29,7 @@ public interface BookMapper {
     Book findById(int book_id);
 
     @Select("select * from book where id = #{book_name}")
-    @Results(id = "bookMap", value = {
+    @Results(id = "findByName", value = {
             //id表示主键v
             @Result(id = true, column = "book_id", property = "book_id"),
             @Result(column = "book_name", property = "book_name"),
@@ -45,4 +47,7 @@ public interface BookMapper {
 
     @Update("update book set book.book_price = #{book_price} where book.book_id = #{book_id}")
     void update(int book_id, double book_price);
+
+    @Select("select * from book")
+    List<Book> bookList();
 }

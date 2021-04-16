@@ -45,16 +45,16 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(user_id);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String user_name) throws UsernameNotFoundException {
-        User user = userRepository.findByName(user_name);
-        if (user == null){
-            throw new UsernameNotFoundException("Invalid username or password.");
-        }
-        return new org.springframework.security.core.userdetails.User(String.valueOf(user.getUser_id()),
-                user.getUser_password(),
-                mapRolesToAuthorities(user.getUser_role()));
-    }
+//    @Override
+//    public UserDetails loadUserByUsername(String user_name) throws UsernameNotFoundException {
+//        User user = userRepository.findByName(user_name);
+//        if (user == null){
+//            throw new UsernameNotFoundException("Invalid username or password.");
+//        }
+//        return new org.springframework.security.core.userdetails.User(String.valueOf(user.getUser_id()),
+//                user.getUser_password(),
+//                mapRolesToAuthorities(user.getUser_role()));
+//    }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream()

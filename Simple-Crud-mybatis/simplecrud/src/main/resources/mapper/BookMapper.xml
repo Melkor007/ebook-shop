@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.bjtu.sei.simplecrud.mapper.BookMapper">
+
+    <resultMap id="BookResultMap" type="edu.bjtu.sei.simplecrud.domain.Book">
+        <result column="book_id" property="book_id" jdbcType="INTEGER"/>
+        <result column="book_name" property="book_name" jdbcType="VARCHAR"/>
+        <result column="book_author" property="book_author" jdbcType="VARCHAR"/>
+        <result column="book_price" property="book_price" jdbcType="DOUBLE"/>
+    </resultMap>
+
+    <!--查询书籍信息-->
+    <select id="getBook" resultType="edu.bjtu.sei.simplecrud.domain.Book">
+        select * from book where book_id = #{book_id}
+    </select>
+
+<!--    &lt;!&ndash;查询所有书籍&ndash;&gt;-->
+<!--    <select id="selectAll" resultType="com.example.demo.entity.Book">-->
+<!--        select * from book-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;删除书籍&ndash;&gt;-->
+<!--    <delete id="deleteBook" parameterType="int">-->
+<!--        delete from book where book_id = #{book_id}-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash;增加一本书籍&ndash;&gt;-->
+<!--    <insert id="addBook" parameterType="com.example.demo.entity.Book">-->
+
+<!--    </insert>-->
+
+<!--    &lt;!&ndash;更新书籍信息&ndash;&gt;-->
+<!--    <update id="updateBook" parameterType="com.example.demo.entity.Book">-->
+
+<!--    </update>-->
+</mapper>

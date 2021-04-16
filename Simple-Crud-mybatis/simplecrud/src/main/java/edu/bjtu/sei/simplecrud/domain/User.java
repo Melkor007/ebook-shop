@@ -12,12 +12,12 @@ public class User {
     private int user_id;
     private String user_name;
     private String user_password;
-    private Collection<Role> user_role;
+    private int user_role;
 
     public User() {
     }
 
-    public User(String user_name, String user_password, Collection<Role> user_role) {
+    public User(String user_name, String user_password, int user_role) {
         this.user_name = user_name;
         this.user_password = user_password;
         this.user_role = user_role;
