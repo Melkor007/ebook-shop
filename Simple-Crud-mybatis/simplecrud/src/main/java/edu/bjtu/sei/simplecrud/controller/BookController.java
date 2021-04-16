@@ -1,6 +1,7 @@
 package edu.bjtu.sei.simplecrud.controller;
 
 import edu.bjtu.sei.simplecrud.domain.Book;
+import edu.bjtu.sei.simplecrud.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

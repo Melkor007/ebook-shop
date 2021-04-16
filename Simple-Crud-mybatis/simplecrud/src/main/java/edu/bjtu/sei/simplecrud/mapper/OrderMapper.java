@@ -1,5 +1,6 @@
 package edu.bjtu.sei.simplecrud.mapper;
 
+import java.util.Collection;
 import java.util.List;
 
 import edu.bjtu.sei.simplecrud.domain.Order;
@@ -17,7 +18,7 @@ public interface OrderMapper {
 			@Result(column = "book_name", property = "book_name"),
 			@Result(column = "book_price", property = "book_price"),
 	})
-	Order findById(int order_id);
+	List<Order> findById(int order_id);
 
 	@Insert("insert into order values(null,#{user_id},#{book_id},#{book_name},#{book_price})")
 	@Options(keyProperty = "order.order_id", useGeneratedKeys = true)
@@ -25,5 +26,8 @@ public interface OrderMapper {
 
 	@Delete("Delete * from order where order.order_id = #{order_id}")
 	void delete(int order_id);
-		
+
+	void update(Order order);
+
+	List<Order> findAll();
 }

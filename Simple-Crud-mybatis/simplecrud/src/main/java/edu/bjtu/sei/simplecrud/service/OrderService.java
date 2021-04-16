@@ -28,14 +28,11 @@ public class OrderService {
     
     private boolean existsById(int id) {
     	Order order = (Order) orderRepository.findById(id);
-        if (order ==null) {
-            return false;
-        }
-        else return true;    
+        return order != null;
     }
     
-    public Order findById(int id) throws ResourceNotFoundException {
-        Order order = (Order) orderRepository.findById(id);
+    public List<Order> findById(int id) throws ResourceNotFoundException {
+        List<Order> order = orderRepository.findById(id);
         if (order ==null) {
             throw new ResourceNotFoundException("Cannot find Order with id: " + id);
         }
@@ -43,10 +40,9 @@ public class OrderService {
     }
     
     public List<Order> findAll(int pageNumber, int rowPerPage) {
-        List<Order> orders = new ArrayList<>();
-//        Pageable sortedByIdAsc = PageRequest.of(pageNumber - 1, rowPerPage, 
+        //        Pageable sortedByIdAsc = PageRequest.of(pageNumber - 1, rowPerPage,
 //                Sort.by("id").ascending());
-        orderRepository.findAll().forEach(orders::add);
+        List<Order> orders = new ArrayList<>(orderRepository.findAll());
 		int size = orders.size();
 		int fromidx = (pageNumber-1)*rowPerPage;
 		if (fromidx>size) fromidx = 0;
@@ -58,8 +54,7 @@ public class OrderService {
 //        return orders;
     }
     
-    @SuppressWarnings("deprecation")
-	public void save(Order order) throws BadResourceException, ResourceAlreadyExistsException {
+    public void save(Order order) throws BadResourceException, ResourceAlreadyExistsException {
         if (String.valueOf(order.getOrder_id()) != null) {
             if (existsById(order.getOrder_id())) {
                 throw new ResourceAlreadyExistsException("Order with id: " + order.getOrder_id() +
@@ -75,8 +70,7 @@ public class OrderService {
         }
     }
     
-    @SuppressWarnings("deprecation")
-	public void update(Order order)
+    public void update(Order order)
             throws BadResourceException, ResourceNotFoundException {
         if (String.valueOf(order.getOrder_id()) != null) {
             if (!existsById(order.getOrder_id())) {
