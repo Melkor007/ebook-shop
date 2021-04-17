@@ -5,6 +5,7 @@ package simplecrud.mapper;
 import org.apache.ibatis.annotations.*;
 
 import simplecrud.domain.Book;
+import simplecrud.domain.Role;
 import simplecrud.domain.User;
 
 import java.util.List;
@@ -36,9 +37,12 @@ public interface UserMapper {
     @Options(keyProperty = "user.user_id", useGeneratedKeys = true)
     void save(@Param("user") User user);
 
-    @Delete("Delete * from user, order on user.user_id = order.user_id where user.user_id = #{user_id}")
+    @Delete("Delete * from user left join 'order' on user.user_id = order.user_id where user.user_id = #{user_id}")
     void delete(int user_id);
 
     @Select("select * from user")
     List<User> userList();
+
+    @Select("select role_id from role left join user on user_role = role_id where user_name = #{user_name}")
+    Role checkRole(String user_name);
 }

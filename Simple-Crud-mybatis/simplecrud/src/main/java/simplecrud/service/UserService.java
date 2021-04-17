@@ -1,6 +1,7 @@
 package simplecrud.service;
 
 import simplecrud.domain.Book;
+import simplecrud.domain.Role;
 import simplecrud.domain.User;
 import simplecrud.controller.dto.UserRegistrationDto;
 import org.springframework.stereotype.Service;
@@ -20,4 +21,6 @@ public interface UserService {
     void delete(int user_id);
 
     boolean login(String username, String user_password);
+
+    Role checkRole(String user_name);
 }

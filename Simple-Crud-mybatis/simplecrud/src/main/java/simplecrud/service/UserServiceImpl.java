@@ -51,6 +51,8 @@ public class UserServiceImpl implements UserService {
         return user_password.equals(u.getUser_password());
     }
 
+    public Role checkRole(String user_name){return userRepository.checkRole(user_name);};
+
 
     public List<User> userList(){
         return userRepository.userList();

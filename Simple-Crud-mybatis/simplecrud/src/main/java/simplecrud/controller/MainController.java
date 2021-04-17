@@ -55,7 +55,10 @@ public class MainController {
         String user_password = req.getParameter("user_password");
         boolean correct = userService.login(username,user_password);
         if(correct){
-            return "redirect:/book-list";
+            if (userService.checkRole(username).getId() == 0)
+                return "redirect:/book-list";
+            else
+                return "redirect:/managerView";
         }
         else{
             return "login";
