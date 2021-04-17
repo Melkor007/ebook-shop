@@ -52,9 +52,6 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteUser(user_id);
     }
 
-    ;
-
-
     public List<User> userList(){
         return userRepository.userList();
     };

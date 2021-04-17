@@ -3,10 +3,7 @@ package simplecrud.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import simplecrud.domain.Book;
 import simplecrud.domain.User;
 import simplecrud.service.BookService;
@@ -52,11 +49,13 @@ public class ManageController {
         return "redirect:/managerView";
     }
 
-    @PostMapping("/managerView/update_price")
+    @PostMapping("/managerView/update")
     public String update_price(){
+        System.out.println("here");
         String book_id = req.getParameter("book_id");
         String book_price = req.getParameter("book_price");
-        bookService.update(Integer.valueOf(book_id),Double.valueOf(book_price));
+        System.out.println(book_id+book_price);
+        bookService.update(Integer.parseInt(book_id),Double.parseDouble(book_price));
         return "redirect:/managerView";
     }
 

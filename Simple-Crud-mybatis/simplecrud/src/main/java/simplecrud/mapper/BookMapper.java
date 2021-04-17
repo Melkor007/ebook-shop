@@ -41,7 +41,7 @@ public interface BookMapper {
     @Options(keyProperty = "book.book_id)", useGeneratedKeys = true)
     void save(@Param("book") Book book);
 
-    @Delete("delete * from book left join `order` on book.book_id = order.book_id where book.book_id = #{book_id}")
+    @Delete("delete from book where book.book_id = #{book_id}")
     void delete(int book_id);
 
     @Update("update book set book.book_price = #{book_price} where book.book_id = #{book_id}")
