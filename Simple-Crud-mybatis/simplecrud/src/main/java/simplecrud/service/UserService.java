@@ -25,4 +25,6 @@ public interface UserService {
     boolean login(String username, String user_password);
 
     Role checkRole(String user_name);
+
+    void deleteuser(int user_id);
 }

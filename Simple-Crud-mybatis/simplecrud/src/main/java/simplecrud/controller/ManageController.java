@@ -47,7 +47,8 @@ public class ManageController {
 
     @GetMapping("/managerView/deleteUser/{user_id}")
     public String deleteUser(Model model, @PathVariable int user_id){
-        userService.delete(user_id);
+//        userService.delete(user_id);
+        userService.deleteuser(user_id);
         return "redirect:/managerView";
     }
 
