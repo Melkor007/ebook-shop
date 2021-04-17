@@ -13,7 +13,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    @Select("select * from user where user.user_id_num = #{user_id}")
+    @Select("select * from user where user.user_id = #{user_id}")
     @Results(id = "findById", value = {
             //id表示主键v
             @Result(id = true, column = "user_id", property = "user_id"),
@@ -43,10 +43,6 @@ public interface UserMapper {
     @Select("select * from user")
     List<User> userList();
 
-    @Select("select role_id from role left join user on user_role = role_id where user_name = #{user_name}")
-    Role checkRole(String user_name);
-
-    @Delete("delete from order where user_id = #{user_id};" +
-            "delete from user where user_id = #{user_id")
+    @Delete("delete from user where user_id = #{user_id}")
     void deleteUser(int user_id);
 }

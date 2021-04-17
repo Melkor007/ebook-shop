@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         user.setUser_name(registration.getUser_name());
         user.setUser_id(registration.getUser_id());
 
-        userRepository.save(user);
+        //userRepository.save(user);
         return user;
     }
 
@@ -45,14 +45,10 @@ public class UserServiceImpl implements UserService {
         return user_password.equals(u.getUser_password());
     }
 
-    public Role checkRole(String user_name){return userRepository.checkRole(user_name);}
-
     @Override
     public void deleteuser(int user_id) {
         userRepository.deleteUser(user_id);
     }
-
-    ;
 
 
     public List<User> userList(){

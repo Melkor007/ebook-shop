@@ -10,9 +10,9 @@
     </resultMap>
 
     <!--查询书籍信息-->
-    <select id="getBook" resultType="simplecrud.domain.Book">
-        select * from book where book_id = #{book_id}
-    </select>
+<!--    <select id="getBook" resultType="simplecrud.domain.Book">-->
+<!--        select * from book where book_id = #{book_id}-->
+<!--    </select>-->
 
 <!--    &lt;!&ndash;查询所有书籍&ndash;&gt;-->
 <!--    <select id="selectAll" resultType="com.example.demo.entity.Book">-->

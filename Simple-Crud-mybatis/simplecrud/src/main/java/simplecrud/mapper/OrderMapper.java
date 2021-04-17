@@ -20,7 +20,6 @@ public interface OrderMapper {
 //	List<Order> findById(int order_id);
 
 	@Insert("insert into `order` (user_id,book_id,book_name,book_price) values(#{user_id},#{book_id},#{book_name},#{book_price})")
-	//@Options(keyProperty = "order.order_id", useGeneratedKeys = true)
 	void insert(int user_id, int book_id, String book_name, double book_price);
 	//void save(@Param("order") Order order);
 
