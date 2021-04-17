@@ -38,6 +38,10 @@ public class OrderService {
         double book_price = b.getBook_price();
         orderMapper.insert(user_id, book_id, book_name, book_price);
     }
+
+    public void delete(int order_id) {
+        orderMapper.delete(order_id);
+    }
 //
 //    private boolean existsById(int id) {
 //    	Order order = (Order) orderRepository.findById(id);

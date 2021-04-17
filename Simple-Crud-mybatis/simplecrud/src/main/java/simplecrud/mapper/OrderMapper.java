@@ -24,9 +24,8 @@ public interface OrderMapper {
 	void insert(int user_id, int book_id, String book_name, double book_price);
 	//void save(@Param("order") Order order);
 
-	@Delete("delete * from `order` where order.order_id = #{order_id}")
+	@Delete("delete from `order` where order_id = #{order_id}")
 	void delete(int order_id);
-
 
 //	@Results(id = "orderMap", value = {
 //			//id表示主键v

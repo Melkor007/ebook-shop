@@ -11,11 +11,10 @@
 	<div class="row">
 	<div class="col-md-6 col-md-offset-3">
     
-        <h1>Contact List</h1>
+        <h1>Management</h1>
         
         <div>
             <nobr>
-                <a th:href="@{/orders/add}">Add Contact</a> |
                 <a th:href="@{/logout}">Log out</a>
             </nobr>
         </div>
@@ -25,25 +24,39 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
+                    <th>Role</th>
                     <th>Edit</th>
                 </tr>
-                <tr th:each ="order : ${orders}">
-                    <td><a th:href="@{/orders/{contactId}(contactId=${order.id})}" th:utext="${order.id}">...</a></td>
-                    <td><a th:href="@{/orders/{contactId}(contactId=${order.id})}" th:utext="${order.name}">...</a></td>
-                    <td th:utext="${order.phone}">...</td>
-                    <td th:utext="${order.user_sex}">...</td>
-                    <td><a th:href="@{/orders/{contactId}/edit(contactId=${order.id})}">Edit</a></td>
+                <tr th:each ="user : ${users}">
+                    <td><a th:href="@{/users/{user_Id}(user_id=${user.user_id})}" th:utext="${user_id}">...</a></td>
+                    <td><a th:href="@{/users/{user_Id}(user_id=${user.user_id})}" th:utext="${user_name}">...</a></td>
+                    <td><a th:href="@{/users/{user_Id}(user_id=${user.user_id})}" th:utext="${user_role.name}">...</a></td>
+                    <td>
+                        <a class="btn-danger" th:href="@{/user/deluser(id=${user.user_id})}">删除</a>
+                    </td>
                 </tr>
             </table>          
         </div>
         <br/><br/>
         <div>
-            <nobr>
-                <span th:if="${hasPrev}"><a th:href="@{/orders?page={prev}(prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
-                <span th:if="${hasNext}"><a th:href="@{/orders?page={next}(next=${next})}">Next</a></span>
-            </nobr>
+            <table class="table table-striped" border="1">
+                <tr>
+                    <th>Book Id</th>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+                <tr th:each ="book : $books}">
+                    <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_id}">...</a></td>
+                    <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_name}">...</a></td>
+                    <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_author}">...</a></td>
+                    <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_price}">...</a></td>
+                    <td>
+                        <a class="btn-primary" th:href="@{/book/changePrice(id=${book.book_id})}">修改价格</a>
+                        <a class="btn-danger" th:href="@{/book/delBook(id=${book.book_id})}">删除</a>
+                    </td>
+                </tr>
+            </table>
         </div>
         
     </div>
