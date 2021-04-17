@@ -42,6 +42,13 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(user_id);
     }
 
+    @Override
+    public boolean login(String username, String user_password) {
+        User u = userRepository.findByName(username);
+//        System.out.println(u.getUser_id()+u.getUser_name()+u.getUser_password());
+        return user_password.equals(u.getUser_password());
+    }
+
 //    @Override
 //    public UserDetails loadUserByUsername(String user_name) throws UsernameNotFoundException {
 //        User user = userRepository.findByName(user_name);

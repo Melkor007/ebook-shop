@@ -22,9 +22,10 @@ public class OrderController {
     @Autowired
     private HttpServletRequest req;
 
-    @RequestMapping("order-list")
+    @RequestMapping("/order-list")
     public String orderList(Model model) throws ResourceNotFoundException {
-        int id = Integer.parseInt(req.getParameter("user_id"));
+//        int id = Integer.parseInt(req.getParameter("user_id"));
+        int id = 10000000;
         List<Order> orders = orderService.orderList(id);
         model.addAttribute("orders", orders);
         return "order-list";
