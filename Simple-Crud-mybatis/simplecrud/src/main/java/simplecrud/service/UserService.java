@@ -12,4 +12,6 @@ public interface UserService {
     User save(UserRegistrationDto registration);
 
     void delete(int user_id);
+
+    boolean login(String username, String user_password);
 }

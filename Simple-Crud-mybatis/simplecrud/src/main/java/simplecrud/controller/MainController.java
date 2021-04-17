@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 //import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import simplecrud.service.UserService;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,6 +24,9 @@ public class MainController {
 
     @Autowired
     private HttpServletRequest req;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping(value = {"/","/index"})
     public String root() {
@@ -47,8 +51,15 @@ public class MainController {
 
     @PostMapping("/login")
     public String fuckit(){
-        System.out.println("here");
-        return "contact-list";
+        String username = req.getParameter("username");
+        String user_password = req.getParameter("user_password");
+        boolean correct = userService.login(username,user_password);
+        if(correct){
+            return "redirect:/book-list";
+        }
+        else{
+            return "login";
+        }
     }
 
 
