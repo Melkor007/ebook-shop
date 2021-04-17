@@ -1,6 +1,5 @@
 package simplecrud.mapper;
 
-//import java.util.List;
 
 import simplecrud.domain.Book;
 import org.apache.ibatis.annotations.*;

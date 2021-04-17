@@ -2,13 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="simplecrud.mapper.OrderMapper">
 
-    <resultMap id="BaseResultMap" type="simplecrud.domain.Order">
-        <result column="order_id" property="order_id" jdbcType="INTEGER"/>
-        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
-        <result column="book_id" property="book_id" jdbcType="INTEGER"/>
-        <result column="book_name" property="book_name" jdbcType="VARCHAR"/>
-        <result column="book_price" property="book_price" jdbcType="DOUBLE"/>
-    </resultMap>
+<!--    <resultMap id="BaseResultMap" type="simplecrud.domain.Order">-->
+<!--        <result column="order_id" property="order_id" jdbcType="INTEGER"/>-->
+<!--        <result column="user_id" property="user_id" jdbcType="INTEGER"/>-->
+<!--        <result column="book_id" property="book_id" jdbcType="INTEGER"/>-->
+<!--        <result column="book_name" property="book_name" jdbcType="VARCHAR"/>-->
+<!--        <result column="book_price" property="book_price" jdbcType="DOUBLE"/>-->
+<!--    </resultMap>-->
+
+<!--    <select id="orderList" resultType="simplecrud.domain.Order">-->
+<!--        SELECT * FROM order-->
+<!--    </select>-->
 
 <!--    &lt;!&ndash;查询订单信息&ndash;&gt;-->
 <!--    <select id="getOrder" resultType="com.example.demo.entity.Order">-->
