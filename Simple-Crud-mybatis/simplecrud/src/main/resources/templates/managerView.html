@@ -45,6 +45,7 @@
                     <th>Book Name</th>
                     <th>Author</th>
                     <th>Price</th>
+                    <th>Edite</th>
                 </tr>
                 <tr th:each ="book : $books}">
                     <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_id}">...</a></td>
@@ -52,7 +53,8 @@
                     <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_author}">...</a></td>
                     <td><a th:href="@{/books/{book_Id}(book_id=${book.book_id})}" th:utext="${book_price}">...</a></td>
                     <td>
-                        <a class="btn-primary" th:href="@{/book/changePrice(id=${book.book_id})}">修改价格</a>
+                        <a class="btn-primary" th:href="@{/book/risePrice(id=${book.book_id})}">价格 + 1</a>
+                        <a class="btn-primary" th:href="@{/book/lowerPrice(id=${book.book_id})}">价格 - 1</a>
                         <a class="btn-danger" th:href="@{/book/delBook(id=${book.book_id})}">删除</a>
                     </td>
                 </tr>
