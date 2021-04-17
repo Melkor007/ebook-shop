@@ -51,15 +51,5 @@ public class BookController {
         return "redirect:/book-list";
     }
 
-    @RequestMapping("/book-list/insert")
-    public String insert(Model model){
-        return "abaaba";
-    }
-
-    @RequestMapping("/book-list/delete/{book_id}")
-    public String delete(Model model, @PathVariable Integer book_id){
-        return "abaaba";
-    }
-
 
 }
