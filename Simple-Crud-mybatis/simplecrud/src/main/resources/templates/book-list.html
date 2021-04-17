@@ -9,6 +9,7 @@
     </style>
 </head>
 <body>
+<span style="text-align: center">书籍清单</span>
 <table class="table table-striped table-bordered table-hover text-center">
     <thead>
     <tr style="text-align:center">
@@ -26,7 +27,7 @@
         <td th:text="${books.book_author}"></td>
         <td th:text="${books.book_price}"></td>
         <td>
-            <a class="btn btn-primary" th:href="@{'/buy/'+${books.bookid}}">购买</a>
+            <a class="btn btn-primary" th:href="@{'/buy/'+${books.book_id}}">购买</a>
         </td>
     </tr>
     </tbody>
