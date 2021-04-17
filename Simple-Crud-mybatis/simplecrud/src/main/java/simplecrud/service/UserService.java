@@ -16,6 +16,8 @@ public interface UserService {
 
     User findById(int user_id_num);
 
+    User findByName(String username);
+
     User save(UserRegistrationDto registration);
 
     void delete(int user_id);
