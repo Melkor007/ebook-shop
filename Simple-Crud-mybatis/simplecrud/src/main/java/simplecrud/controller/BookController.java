@@ -18,7 +18,6 @@ public class BookController {
     public String BookList(Model model) {
         List<Book> books = bookService.booklist();
         model.addAttribute("books", books);
-
         return "book-list";
     }
 
