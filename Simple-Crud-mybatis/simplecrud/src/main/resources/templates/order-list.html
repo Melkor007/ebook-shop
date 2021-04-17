@@ -2,14 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <title>Book List</title>
+    <title>My Order List</title>
     <style type="text/css">
-        table {border-collapse: collapse; font-size: 14px; width: 80%; margin: auto}
-        table, th, td {border: 1px solid darkslategray;padding: 10px}
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 250px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
     </style>
 </head>
 <body>
-<span style="text-align: center;display:block;">我的订单</span>
+<span style="text-align: center;display:block;font-size: 30px;font-family: KaiTi;font-weight: bold">我的订单</span>
 <table class="table table-striped table-bordered table-hover text-center">
     <thead>
     <tr style="text-align:center">
@@ -29,7 +52,12 @@
         <td th:text="${orders.book_name}"></td>
         <td th:text="${orders.book_price}"></td>
         <td>
-            <a class="btn btn-primary" th:href="@{'/delete/'+${orders.order_id}}">删除</a>
+            <a class="btn btn-primary" th:href="@{'order-list/delete/'+${orders.order_id}}" onclick="deleteSuccess()">删除</a>
+            <script>
+                function deleteSuccess() {
+                    alert("删除成功！")
+                }
+            </script>
         </td>
     </tr>
     </tbody>

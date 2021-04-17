@@ -3,10 +3,12 @@
  */
 package simplecrud.service;
 
+import simplecrud.domain.Book;
 import simplecrud.domain.Order;
 import simplecrud.exception.BadResourceException;
 import simplecrud.exception.ResourceAlreadyExistsException;
 import simplecrud.exception.ResourceNotFoundException;
+import simplecrud.mapper.BookMapper;
 import simplecrud.mapper.OrderMapper;
 //import ContactRepository;
 
@@ -22,11 +24,23 @@ import org.springframework.stereotype.Service;
 public class OrderService {
     
     @Autowired
-    //private ContactRepository orderRepository;
-    private OrderMapper orderRepository;
+    private OrderMapper orderMapper;
+    @Autowired
+    private BookMapper bookMapper;
 
     public List<Order> orderList(int user_id){
-        return orderRepository.orderList(user_id);
+        return orderMapper.orderList(user_id);
+    }
+
+    public void insert(int book_id, int user_id){
+        Book b = bookMapper.findById(book_id);
+        String book_name = b.getBook_name();
+        double book_price = b.getBook_price();
+        orderMapper.insert(user_id, book_id, book_name, book_price);
+    }
+
+    public void delete(int order_id) {
+        orderMapper.delete(order_id);
     }
 //
 //    private boolean existsById(int id) {

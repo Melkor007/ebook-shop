@@ -51,13 +51,15 @@
         <td th:text="${books.book_author}"></td>
         <td th:text="${books.book_price}"></td>
         <td>
-            <a class="btn btn-primary" th:href="@{'/buy/'+${books.book_id}}">购买</a>
+            <a class="btn btn-primary" th:href="@{'book-list/buy/'+${books.book_id}}" onclick="buySuccess()">购买</a>
+            <script>
+                function buySuccess() {
+                    alert("购买成功！")
+                }
+            </script>
         </td>
     </tr>
     </tbody>
 </table>
-<div>
-    <img th:src="@{../static/images/p1.jpg}" alt="图片睡着了">
-</div>
 </body>
 </html>
