@@ -17,7 +17,7 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-	@Select("select * from book where id = #{book_id}")
+	@Select("select * from book where book_id = #{book_id}")
     @Results(id = "findById", value = {
             //id表示主键v
             @Result(id = true, column = "book_id", property = "book_id"),

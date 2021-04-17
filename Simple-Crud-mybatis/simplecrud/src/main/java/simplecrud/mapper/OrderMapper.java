@@ -19,11 +19,12 @@ public interface OrderMapper {
 //	})
 //	List<Order> findById(int order_id);
 
-	@Insert("insert into order values(null,#{user_id},#{book_id},#{book_name},#{book_price})")
-	@Options(keyProperty = "order.order_id", useGeneratedKeys = true)
-	void save(@Param("order") Order order);
+	@Insert("insert into `order` (user_id,book_id,book_name,book_price) values(#{user_id},#{book_id},#{book_name},#{book_price})")
+	//@Options(keyProperty = "order.order_id", useGeneratedKeys = true)
+	void insert(int user_id, int book_id, String book_name, double book_price);
+	//void save(@Param("order") Order order);
 
-	@Delete("delete * from order where order.order_id = #{order_id}")
+	@Delete("delete * from `order` where order.order_id = #{order_id}")
 	void delete(int order_id);
 
 
