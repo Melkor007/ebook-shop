@@ -15,4 +15,6 @@ public class BookService {
     public List<Book> bookList() {
         return bookMapper.bookList();
     }
+
+    public void update(int book_id, double price){bookMapper.update(book_id,price);};
 }

@@ -4,7 +4,10 @@ package simplecrud.mapper;
 
 import org.apache.ibatis.annotations.*;
 
+import simplecrud.domain.Book;
 import simplecrud.domain.User;
+
+import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -35,4 +38,7 @@ public interface UserMapper {
 
     @Delete("Delete * from user, order on user.user_id = order.user_id where user.user_id = #{user_id}")
     void delete(int user_id);
+
+    @Select("select * from user")
+    List<User> userList();
 }
