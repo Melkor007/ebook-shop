@@ -11,6 +11,7 @@ import simplecrud.service.BookService;
 import simplecrud.service.OrderService;
 import simplecrud.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -23,6 +24,9 @@ import java.util.List;
 public class ManageController {
 
     @Autowired
+    private HttpServletRequest req;
+
+    @Autowired
     private BookService bookService;
     @Autowired
     private UserService userService;
@@ -32,32 +36,27 @@ public class ManageController {
         List<Book> books = bookService.bookList();
         model.addAttribute("books", books);
 
-        List<User> users = userService.u
+        List<User> users = userService.userList();
         return "managerView";
     }
 
-    @GetMapping("/book-list/buy/{book_id}")
-    public String buy(Model model, @PathVariable int book_id){
-        //int id = Integer.parseInt(req.getParameter("user_id"));
-        orderService.insert(book_id, 10000000);
-        List<Book> books = bookService.bookList();
-        model.addAttribute("books", books);
-        return "redirect:/book-list";
+    @GetMapping("/managerView/deleteUser/{user_id}")
+    public String deleteUser(Model model, @PathVariable Integer user_id){
+        userService.delete(user_id);
+        return "redirect:/managerView";
     }
 
-    @GetMapping("/book-list/update_price/{book_id}")
-    public String update_price(Model model, @PathVariable Integer book_id){
-
-        return "redirect:/book-list";
+    @RequestMapping("/managerView/update_price")
+    public String update_price(){
+        String book_id = req.getParameter("book_id");
+        String book_price = req.getParameter("book_price");
+        bookService.update(Integer.valueOf(book_id),Double.valueOf(book_price));
+        return "redirect:/managerView";
     }
 
-    @RequestMapping("/book-list/insert")
-    public String insert(Model model){
-        return "abaaba";
-    }
-
-    @RequestMapping("/book-list/delete/{book_id}")
-    public String delete(Model model, @PathVariable Integer book_id){
-        return "abaaba";
+    @RequestMapping("/managerView/deleteBook/{book_id}")
+    public String deleteBook(Model model, @PathVariable Integer book_id){
+        bookService.delete(book_id);
+        return "redirect:/managerView";
     }
 }

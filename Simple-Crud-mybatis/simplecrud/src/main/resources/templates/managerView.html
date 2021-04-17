@@ -32,7 +32,7 @@
                     <td><a th:href="@{/users/{user_Id}(user_id=${user.user_id})}" th:utext="${user_name}">...</a></td>
                     <td><a th:href="@{/users/{user_Id}(user_id=${user.user_id})}" th:utext="${user_role.name}">...</a></td>
                     <td>
-                        <a class="btn-danger" th:href="@{/user/dele(id=${user.user_id})}">删除</a>
+                        <a class="btn-danger" th:href="@{'managerView/deleteUser/'+${user.user_id})}">删除</a>
                     </td>
                 </tr>
             </table>          
@@ -51,10 +51,15 @@
                     <td><a th:utext="${book.book_id}">...</a></td>
                     <td><a th:utext="${book.book_name}">...</a></td>
                     <td><a th:utext="${book.book_author}">...</a></td>
-                    <td>价格：<input class="form-control" type="text" th:value="${book.book_price}" name="price"></td>
                     <td>
-                        <a class="btn btn-primary" th:href="@{'managerView/update_price/'+${books.book_id} + ${book.book_price}}">修改价格</a>
-                        <a class="btn-danger" th:href="@{'managerView/delete/'+${books.book_id}}">删除</a>
+                        <form action="/update" method="post">
+                            <class  th:value="${book.book_id}" name="book_id">
+                            价格：<input class="form-control" type="text" th:value="${book.book_price}" name="book_price">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">修改价格</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a class="btn-danger" th:href="@{'managerView/deleteBook/'+${books.book_id}}">删除</a>
                     </td>
                 </tr>
             </table>

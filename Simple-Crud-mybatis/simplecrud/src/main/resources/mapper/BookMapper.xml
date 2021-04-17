@@ -20,9 +20,9 @@
 <!--    </select>-->
 
 <!--    &lt;!&ndash;删除书籍&ndash;&gt;-->
-<!--    <delete id="deleteBook" parameterType="int">-->
-<!--        delete from book where book_id = #{book_id}-->
-<!--    </delete>-->
+    <delete id="delete" parameterType="int">
+        delete from book where book_id = #{book_id}
+    </delete>
 
 <!--    &lt;!&ndash;增加一本书籍&ndash;&gt;-->
 <!--    <insert id="addBook" parameterType="com.example.demo.entity.Book">-->

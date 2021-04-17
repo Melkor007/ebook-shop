@@ -17,4 +17,8 @@ public class BookService {
     }
 
     public void update(int book_id, double price){bookMapper.update(book_id,price);};
+
+    public void delete(int book_id){
+        bookMapper.delete(book_id);
+    }
 }
