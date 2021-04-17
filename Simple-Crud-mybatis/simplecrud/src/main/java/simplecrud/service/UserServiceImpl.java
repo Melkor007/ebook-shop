@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import simplecrud.domain.Role;
@@ -20,8 +20,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+//    @Autowired
+//    private BCryptPasswordEncoder passwordEncoder;
 
     public User findById(int user_id){
         return userRepository.findById(user_id);
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
 
         user.setUser_name(registration.getUser_name());
-        user.setUser_password(passwordEncoder.encode(registration.getUser_password()));
+//        user.setUser_password(passwordEncoder.encode(registration.getUser_password()));
         user.setUser_id(registration.getUser_id());
 
         userRepository.save(user);
@@ -53,9 +53,9 @@ public class UserServiceImpl implements UserService {
 //                mapRolesToAuthorities(user.getUser_role()));
 //    }
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
-                .collect(Collectors.toList());
-    }
+//    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
+//        return roles.stream()
+//                .map(role -> new SimpleGrantedAuthority(role.getName()))
+//                .collect(Collectors.toList());
+//    }
 }

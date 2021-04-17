@@ -1,5 +1,6 @@
 package simplecrud.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import simplecrud.domain.Book;
 import simplecrud.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/book-list")
+    @GetMapping("/book-list")
     public String BookList(Model model) {
         List<Book> books = bookService.booklist();
         model.addAttribute("books", books);
@@ -23,7 +24,7 @@ public class BookController {
 
     @RequestMapping("/book-list/buy/{book_id}")
     public String buy(Model model, @PathVariable Integer book_id){
-        return "abaaba";
+        return "redirect:/book-list";
     }
 
     @RequestMapping("/book-list/update_price/{book_id}")
